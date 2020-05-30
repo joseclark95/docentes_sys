@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Administración de cursos — Capacitación a docentes</title>
+    <script type="module" src="/js/admin-courses/admin-courses.js"></script>
+</head>
+
+<body>
+    <h1>Administración de cursos — Capacitación a docentes</h1>
+    <button id="show-button">Añadir un curso</button>
+    <div class="modal-background" id="add-course-modal-background">
+        <div class="modal-content" id="add-course-modal-content">
+            <div class="modal-header" id="add-course-modal-header">
+                <p>Añadir un curso — Formulario de información</p>
+            </div>
+            <div class="modal-body" id="add-course-modal-body">
+                <p>
+                    <label for="registry-number-input">Id de registro</label>
+                    <input type="text" id="registry-number-input">
+                </p>
+                <p>
+                    <label for="type-input">Tipo</label>
+                    <input type="text" id="type-input">
+                </p>
+                <p>
+                    <label for="category-input">Categoría</label>
+                    <input type="text" id="category-input">
+                </p>
+                <p>
+                    <label for="name-input">Nombre</label>
+                    <input type="text" id="name-input">
+                </p>
+                <p>
+                    <label for="instructor-input">Nombre del instructor</label>
+                    <input type="text" id="instructor-input">
+                </p>
+                <div>
+                    <p>Periodo de curso:</p>
+                    <label for="from-date-input">Desde</label>
+                    <input type="text" id="from-date-input" placeholder="yyyy-mm-dd hh:mm">
+                    <label for="to-date-input">Hasta</label>
+                    <input type="text" id="to-date-input" placeholder="yyyy-mm-dd hh:mm">
+                </div>
+                <div>
+                    <p>Periodo de inscripción: (opcional)</p>
+                    <label for="enroll-from-date-input">Desde</label>
+                    <input type="text" id="enroll-from-date-input" placeholder="yyyy-mm-dd hh:mm">
+                    <label for="enroll-to-date-input">Hasta</label>
+                    <input type="text" id="enroll-to-date-input" placeholder="yyyy-mm-dd hh:mm">
+                </div>
+            </div>
+            <div class="modal-footer" id="add-course-modal-footer">
+                <button id="add-button">Añadir curso</button>
+                <button id="cancel-button">Cancelar</button>
+                <p id="message-paragraph"></p>
+            </div>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Categoría</th>
+                <th>Instructor</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+                <th>Inicio de inscripción</th>
+                <th>Inicio de inscripción</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody id="courses-tbody">
+            {{{getCoursesList coursesList}}}
+        </tbody>
+    </table>
+    {{> footer}}
+</body>
+
+</html>
