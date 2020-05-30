@@ -5,12 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index-route/style.css">
+    <script src="/js/index/index.js"></script>
     <title>Capacitación a docentes — Instituto Tecnológico de Hermosillo</title>
 </head>
 
 <body>
     {{> header}}
-    <div class="content"></div>
+    <div class="content">
+        <h2>Cursos disponibles</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Instructor</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha de fin</th>
+                    <th>Inicio de inscripción</th>
+                    <th>Inicio de inscripción</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody id="courses-tbody">
+            </tbody>
+        </table>
+    </div>
     {{> footer}}
 </body>
 

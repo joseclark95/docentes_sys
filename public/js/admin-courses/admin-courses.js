@@ -1,5 +1,5 @@
 import { controls } from "./controls.js";
-import { request } from "./request.js";
+import { request } from "../request.js";
 import Modal from "../modal.js";
 import { formatDate } from "../utils.js"
 

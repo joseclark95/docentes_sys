@@ -3,6 +3,11 @@ const db = require("../db");
 const util = require("util");
 const validate = require("../utils/validate");
 
+module.exports = {
+	getCoursesList,
+	getAvailableCoursesList
+}
+
 app.get("/admin-courses", async (req, res) =>
 {
 	let user = req.session.user;
@@ -144,6 +149,24 @@ async function getCoursesList()
 	{
 		let getAllCourses = util.promisify(db.getAllCourses);
 		return await getAllCourses();
+	}
+	catch (error)
+	{
+		return error;
+	}
+}
+
+async function getAvailableCoursesList()
+{
+	try
+	{
+		let getAllCourses = util.promisify(db.getAllCourses);
+		let coursesList = await getAllCourses(),
+			availableCourses = [];
+		for (const course of coursesList)
+			if (course.enabled)
+				availableCourses.push(course);
+		return availableCourses;
 	}
 	catch (error)
 	{
