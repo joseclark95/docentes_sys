@@ -4,7 +4,7 @@
  * @export
  * @param {Date} date date object to format
  * @param {boolean} namedDay if true, returns with a named week day
- * @returns
+ * @returns {string}
  */
 export function formatDate(date, weekDay)
 {

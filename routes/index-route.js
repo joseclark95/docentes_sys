@@ -5,6 +5,12 @@ const routeAdminCourses = require("./admin-courses-route.js");
 
 app.get("/", async (req, res) =>
 {
+	req.session.user = await isSessionUserValid(req.session.user);
+	res.render("index.hbs", { user: req.session.user });
+});
+
+app.post("/", async (req, res) =>
+{
 	let action = req.body.action;
 	switch (action)
 	{
@@ -13,18 +19,13 @@ app.get("/", async (req, res) =>
 			try
 			{
 				let coursesList = await routeAdminCourses.getAvailableCoursesList();
-				res.send(coursesList);
+				res.send({ success: true, coursesList });
 				break;
 			}
 			catch (error)
 			{
 				res.send(error);
 			}
-		}
-		default:
-		{
-			req.session.user = await isSessionUserValid(req.session.user);
-			res.render("index.hbs", { user: req.session.user });
 		}
 	}
 });
